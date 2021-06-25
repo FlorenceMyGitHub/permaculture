@@ -6,6 +6,10 @@ const routes: Routes = [
   {
     path: '',
     component: Tab1Page,
+  },
+  {
+    path: 'varietes',
+    loadChildren: () => import('./varietes/varietes.module').then( m => m.VarietesPageModule)
   }
 ];
 

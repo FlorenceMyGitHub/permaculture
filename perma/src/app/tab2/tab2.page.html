@@ -6,12 +6,55 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
-    </ion-toolbar>
-  </ion-header>
 
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+<ion-content [fullscreen]="true"
+  [scrollEvents]="true"
+  (ionScrollStart)="logScrollStart()"
+  (ionScroll)="logScrolling($event)"
+  (ionScrollEnd)="logScrollEnd()">
+    <h1>Main Content</h1>
+
+    
+   
+      <ion-list class="ios list-ios hydrated">
+
+
+ 
+        <ion-item class="item ios in-list ion-focusable hydrated item-label" *ngFor="let result of results" button="true" (click)="showVarietes(result)">
+          <ion-label class="sc-ion-label-ios-h sc-ion-label-ios-s ios hydrated">{{result}}</ion-label>
+          <ion-icon name="chevron-forward-outline"></ion-icon>
+        </ion-item>
+
+
+      </ion-list>
+
+
+
+
+      <ion-nav class="ios" animated="true" popTo="VarietesPageModule">
+        <ion-item button>
+          <ion-icon name="arrow-forward" slot="end"></ion-icon>
+          <ion-label>
+           TEST DE LA PAGE TAB2
+          </ion-label>
+        </ion-item>
+      </ion-nav>
+
+
+
+
+     <ion-nav-link popTo="var" animated="true">
+        <ion-item button>
+          <ion-icon name="arrow-forward" slot="end"></ion-icon>
+          <ion-label>
+            Go to level {{ 1 + 1 }}
+          </ion-label>
+        </ion-item>
+      </ion-nav-link>
+
+
+
+      
+
+
 </ion-content>
